@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+
+    <style>
+        canvas {
+            border: 1px turquoise solid;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="500" width="500">
+    </canvas>
+
+    <script>
+        let canvas = document.querySelector('#canvas')
+        let context = canvas.getContext('2d')
+
+
+        // line drawing -- why is this not working?
+        context.beginPath()  // shows where the line will go
+        context.moveTo(25, 25)  // where is the line going to start
+        context.lineTo(250, 250)  // where does the line end
+        context.lineTo(400, 30)  // will continue from last point, to new endpoint
+
+        // context.lineWidth = 30
+        // context.strokeStyle = 'blue'
+        // context.stroke()  // draws the line
+
+
+        // circle
+        // context.beginPath()
+        // context.arc(200, 200, 75, 0, 6.3)  // 0 - 6.3 draws full circle
+        // // or use Math.PI/2  --> (250, 250, 75, 0, Math.PI/2)
+        // context.stroke
+
+
+        // // text
+        // context.fillStyle = 'green'
+        // context.font = '40px Courier'
+        // context.fillText('Hello World', 50, 50)
+
+        // context.strokeStyle = 'green'
+        // context.strokeText('This is some more text', 50, 200)
+
+
+
+        // draw rectangles & shapes
+        context.fillRect(20, 20, 100, 200)
+
+        context.strokeRect(200, 300, 200, 50)
+        context.fillRect(250, 200, 100, 50)  
+
+        context.fillStyle = 'red'  // shapes will respond to the most recently listed color/style
+        context.lineWidth = 20
+        context.strokeRect(200, 400, 75, 75)
+        context.fillRect(150, 50, 50, 50)
+
+        // draw a shape with an outline
+        context.fillStyle = 'grey'
+        context.fillRect(50, 250, 100, 100)
+        context.strokeStyle = 'red'
+        context.lineWidth = 10
+        context.strokeRect(50, 250, 100, 100)  // this gives the shape an outline/border
+
+        // // (x, 0, 0, 0): how far to the right/left (bigger number = farther right)
+        // // (0, x, 0, 0): how far up (bigger number = farther down)
+        // // (0, 0, x, 0): how long rectangle is (bigger number = longer)
+        // // (0, 0, 0, x): how tall the rectangle is (bigger number = taller)
+    </script>
+</body>
