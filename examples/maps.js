@@ -43,6 +43,6 @@ campuses.forEach(function(collegeCampus) {
 
 
 let normandaleCoordinates = [44.8297, -93.3312]
-let nomrandaleMarker = L.marker(normandaleCoordinates)
+let normandaleMarker = L.marker(normandaleCoordinates)
     .bindPopup('Normandale College<br><a href="https://normandale.edu">Website</a>')
     .addTo(map)

@@ -3,12 +3,13 @@
 let goldenGateBridgeCoordinates = [	37.8199, -122.4783]
 let zoomLevel = 7
 
+let bridgeIcon = L.icon({
+    iconUrl: 'bridge.png'
+})
+
+L.marker([0, 0], {icon: bridgeIcon}).addTo(map);
 let map = L.map('bridges-map').setView(goldenGateBridgeCoordinates, zoomLevel)
 
-// What exactly does this do again? Re-watch example
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
 
 
 // Put data set for bridges into an object array
