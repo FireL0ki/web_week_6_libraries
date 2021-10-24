@@ -19,10 +19,31 @@
 <P>Drag the mouse on the canvas</P>
 <canvas id="canvas" height="400" width="400"></canvas>
 
+<!-- TODO add an input type="color" to select drawing color.The value from the 
+color input can be used with a context.strokeStyle or context.fillStyle statement-->
+<form><br>
+<label for="color">Color:</label>
+<input id="color" type="text"><br><br>
+
+<!-- TODO Add an input type="range" to set the radius of the circles drawn-->
+<label for="range">Range:</label>
+<input id="range" type="text"><br><br>
+<input type="submit" value="Submit">
+</form>
+
+<!-- TODO Optional E.C. for best drawing drawn within program
+Additional E.C. for adding extra drawing tools to page -->
+
 <script>
+
+  //Add variables for added inputs for color & range
+  let colorChoice = document.querySelector('#color')
+  let rangeInput = document.querySelector('#range')
 
   let canvas = document.querySelector('#canvas')
   let context = canvas.getContext('2d')
+
+  
   
   // Keep track of whether the mouse button has been pressed down or not.
   // Think of this as whether the user is drawing or not, is their brush on the canvas?
@@ -53,8 +74,13 @@
 
     //Draw a filled rectangle centered under the mouse click
     //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
-    // context.fillRect(x-5, y-5, 10, 10)
+    //context.fillRect(x-5, y-5, 10, 10)
+
+    // TODO Draw a cricle instead of a square (fix this code)
+    context.beginPath()
+    context.arc(10, 10, 10, 0, 6.3) 
     context.arc(x-5, y-5, 10, 10, 6.3)  // 0 - 6.3 draws full circle
+    context.stroke
 
   })
 
