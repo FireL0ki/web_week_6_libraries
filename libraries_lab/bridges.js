@@ -3,7 +3,7 @@
 let goldenGateBridgeCoordinates = [	37.8199, -122.4783]
 let zoomLevel = 7
 
-let map = L.map('bridges-map').setView(metroAreaCenterCoordinates, zoomLevel)
+let map = L.map('bridges-map').setView(goldenGateBridgeCoordinates, zoomLevel)
 
 // What exactly does this do again? Re-watch example
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
