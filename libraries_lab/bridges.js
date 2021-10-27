@@ -43,22 +43,57 @@ bridges.forEach(function(bridge) {
 // You can change colors of an icon if you register for a Flaticon account
 
 
-// Example loop from previous college map program
-campuses.forEach(function(collegeCampus) {
-    let markerText = `${collegeCampus.name}<br><a href="${collegeCampus.website}">Website</a>`
-    L.marker(collegeCampus.coordinates).bindPopup(markerText).addTo(map)
-})
-
-
 
 // TODO Part 3- Use dataset (bridge list in array above) to create a Chart.js
 // bar chart of the bridge names and span legnths
 // You can draw the chart on the same page as the map, or make a new page
 // Can you use the array you created i part 2 to avoid typing the same data again?
 
+
+// chart canvas & context
+let chartCanvas = document.querySelector('#bridges-chart')
+let ctx = chartCanvas.getContext('2d')
+
+// TODO create chart object 
+let bridgeChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        datasets: [
+            {
+                data: [], // create empty so array can be entered
+                // backgroundColor: [] // TODO
+            }
+        ],
+        labels: []
+    },
+    options: {}  // ??
+})
+
+// loop over array to get bridge names & spans
 for (x = 0; x <= 4; x++) {
     let bridgeName = bridges[x].name
     let bridgeSpan = bridges[x].span
+
+    addBridgetoChart(bridgeName, bridgeSpan)
+}
+
+// add array information into the chart
+function addBridgetoChart(name, span) {
+    
+    // TODO add bridge info to chart
+    bridgeChart.data.labels.push(name)
+    bridgeChart.data.datasets[0].data.push(span)
+
+
+    // example of colors for chart
+    // let colorCount = expenseChart.data.datasets[0].backgroundColor.length
+    // let color = chartColors[ colorCount % chartColors.length ]
+
+    // console.log(colorCount, color)
+    // expenseChart.data.datasets[0].backgroundColor.push(color)
+
+    expenseChart.update()
+
 }
 
 
