@@ -22,7 +22,7 @@ bridges =  [
 ]
 
 // Loop over the array to create markers & popups 
-// Don't create separate markers in your code (? meaning what)
+// Don't create separate markers in your code (?)
 // Place a marker at each bridge locations
 // Each marker should have a popup: bridge's name, span length
 // Use HTML to format information neatly
@@ -45,18 +45,18 @@ campuses.forEach(function(collegeCampus) {
     L.marker(collegeCampus.coordinates).bindPopup(markerText).addTo(map)
 })
 
-// Individual map marker add example
-let normandaleCoordinates = [44.8297, -93.3312]
-let nomrandaleMarker = L.marker(normandaleCoordinates)
-    .bindPopup('Normandale College<br><a href="https://normandale.edu">Website</a>')
-    .addTo(map)
-
 
 
 // TODO Part 3- Use dataset (bridge list in array above) to create a Chart.js
 // bar chart of the bridge names and span legnths
 // You can draw the chart on the same page as the map, or make a new page
 // Can you use the array you created i part 2 to avoid typing the same data again?
+
+for (x = 0; x <= 4; x++) {
+    let bridgeName = bridges[x].name
+    let bridgeSpan = bridges[x].span
+}
+
 
 // Enable GitHub pages for repository so all pages have live versions
 // Submit with a link to your GITHUB repository with all files
