@@ -1,6 +1,6 @@
 
 // Set appropriate center location / zoom level to show all five (experiment)
-let startingCoordinates = [	40, -100]
+let startingCoordinates = [40, -100]
 let zoomLevel = 3
 
 let bridgeIcon = L.icon({
@@ -92,7 +92,7 @@ function addBridgetoChart(name, span) {
     // console.log(colorCount, color)
     // expenseChart.data.datasets[0].backgroundColor.push(color)
 
-    expenseChart.update()
+    bridgeChart.update()
 
 }
 

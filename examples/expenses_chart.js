@@ -3,7 +3,7 @@ let expenseNameInput = document.querySelector('#expense-name')
 let expenseAmountInput = document.querySelector('#expense-amount')
 let addExpenseButton = document.querySelector('#add-expense')
 
-/* Get chart canvas and contex  */
+/* Get chart canvas and context  */
 let chartCanvas = document.querySelector('#expenses-doughnut-chart')
 let ctx = chartCanvas.getContext('2d')
 
