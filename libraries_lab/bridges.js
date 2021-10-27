@@ -1,14 +1,18 @@
 
 // Set appropriate center location / zoom level to show all five (experiment)
-let goldenGateBridgeCoordinates = [	37.8199, -122.4783]
-let zoomLevel = 7
+let startingCoordinates = [	40, -100]
+let zoomLevel = 3
 
 let bridgeIcon = L.icon({
     iconUrl: 'bridge.png'
 })
 
+let map = L.map('bridges-map').setView(startingCoordinates, zoomLevel)
 L.marker([0, 0], {icon: bridgeIcon}).addTo(map);
-let map = L.map('bridges-map').setView(goldenGateBridgeCoordinates, zoomLevel)
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
 
 
