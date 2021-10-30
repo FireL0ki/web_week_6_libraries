@@ -87,7 +87,6 @@ function addBridgetoChart(name, span) {
 
 }
 
-
 // Enable GitHub pages for repository so all pages have live versions
 // Submit with a link to your GITHUB repository with all files
 // DIRECT WORKING links to the live pages on GitHub
