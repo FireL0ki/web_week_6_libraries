@@ -1,13 +1,18 @@
-
 // Set appropriate center location / zoom level to show all five (experiment)
 let startingCoordinates = [40, -100]
 let zoomLevel = 3
 
+// TODO Optional E.C. Instead of default marker, draw a bridge icon at locations
+// Tutorial: https://www.flaticon.com/free-icon/bridge_183412
+// Examine bridge data array; use JS to figure out which bridge is longest
+// Draw the marker for this bridge in a different color
+// You can change colors of an icon if you register for a Flaticon account
 let bridgeIcon = L.icon({
     iconUrl: 'bridge.png'
 })
 
 let map = L.map('bridges-map').setView(startingCoordinates, zoomLevel)
+// I have a random giant bridge icon on my map...
 L.marker([0, 0], {icon: bridgeIcon}).addTo(map);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -26,29 +31,23 @@ bridges =  [
 ]
 
 // Loop over the array to create markers & popups 
-// Don't create separate markers in your code (?)
+// Don't create separate markers in your code
 // Place a marker at each bridge locations
 // Each marker should have a popup: bridge's name, span length
 // Use HTML to format information neatly
 bridges.forEach(function(bridge) {
     let markerText = `${bridge.name}<br>${bridge.span}`
+    // how do I make this the bridge icon? 
+    // Doing this makes giant bridges on my map...  --> L.marker(bridge.coordinates, {icon: bridgeIcon}).bindPopup(markerText).addTo(map)
     L.marker(bridge.coordinates).bindPopup(markerText).addTo(map)
  
 })
 
-// TODO Optional E.C. Instead of default marker, draw a bridge icon at locations
-// Tutorial: https://www.flaticon.com/free-icon/bridge_183412
-// Examine bridge data array; use JS to figure out which bridge is longest
-// Draw the marker for this bridge in a different color
-// You can change colors of an icon if you register for a Flaticon account
 
-
-
-// TODO Part 3- Use dataset (bridge list in array above) to create a Chart.js
+// Part 3- Use dataset (bridge list in array above) to create a Chart.js
 // bar chart of the bridge names and span legnths
 // You can draw the chart on the same page as the map, or make a new page
 // Can you use the array you created i part 2 to avoid typing the same data again?
-
 
 // chart canvas & context
 let chartCanvas = document.querySelector('#bridges-chart')
@@ -83,14 +82,6 @@ function addBridgetoChart(name, span) {
     // TODO add bridge info to chart
     bridgeChart.data.labels.push(name)
     bridgeChart.data.datasets[0].data.push(span)
-
-
-    // example of colors for chart
-    // let colorCount = expenseChart.data.datasets[0].backgroundColor.length
-    // let color = chartColors[ colorCount % chartColors.length ]
-
-    // console.log(colorCount, color)
-    // expenseChart.data.datasets[0].backgroundColor.push(color)
 
     bridgeChart.update()
 
