@@ -47,7 +47,7 @@ bridges.forEach(function(bridge) {
 // Part 3- Use dataset (bridge list in array above) to create a Chart.js
 // bar chart of the bridge names and span legnths
 // You can draw the chart on the same page as the map, or make a new page
-// Can you use the array you created i part 2 to avoid typing the same data again?
+// Can you use the array you created in part 2 to avoid typing the same data again?
 
 // chart canvas & context
 let chartCanvas = document.querySelector('#bridges-chart')
