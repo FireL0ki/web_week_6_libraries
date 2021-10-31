@@ -31,6 +31,9 @@ color input can be used with a context.strokeStyle or context.fillStyle statemen
 <input type="submit" value="Submit">
 </form>
 
+<br>
+<input type="button" id="clear" value="Clear">
+
 <!-- TODO Optional E.C. for best drawing drawn within program
 Additional E.C. for adding extra drawing tools to page -->
 
@@ -53,7 +56,7 @@ Additional E.C. for adding extra drawing tools to page -->
     let y = event.offsetY
     // Circle instead of square
     context.beginPath()
-    context.arc(x-5, y-5, rangeInput, 10, 6.3)  // 0 - 6.3 draws full circle
+    context.arc(x-5, y-5, 4, 0, 6.3)  // 0 - 6.3 draws full circle
     // use the color choice from the color input
     context.strokeStyle = colorChoice
     context.lineWidth = 4
@@ -80,7 +83,7 @@ Additional E.C. for adding extra drawing tools to page -->
     let x = event.offsetX
     let y = event.offsetY   //offsetX, offsetY, may not work in older browsers
 
-    // TODO Draw a cricle instead of a square (fix this code)
+    // Draw a cricle instead of a square
     context.beginPath()
     context.arc(x-5, y-5, 4, 0, 6.3) // 0 - 6.3 draws full circle
     context.strokeStyle = colorChoice
@@ -90,7 +93,20 @@ Additional E.C. for adding extra drawing tools to page -->
   })
 
   document.getElementById("submit").addEventListener("click", function() {
+    let x = event.offsetX
+    let y = event.offsetY 
+
+    context.beginPath()
+    context.arc(x-5, y-5, rangeInput, 0, 6.3)
     context.strokeStyle = colorChoice
+    context.lineWidth = 4
+    context.stroke()
+  })
+
+
+  // add event listener to button to clear the canvas
+  document.getElementById("clear").addEventListener('click', function() {
+    context.clearRect(0, 0, canvas.width, canvas.height)
   })
 
 </script>
