@@ -7,7 +7,7 @@
   <style>
 
     #canvas {
-      border: 1px black solid;
+      border: 2px navy solid;
     }
 
   </style>
@@ -51,6 +51,15 @@ Additional E.C. for adding extra drawing tools to page -->
 
   canvas.addEventListener('mousedown', function() {
     mousedown = true
+
+    // Circle instead of square
+     context.beginPath()
+    context.arc(10, 10, 10, 0, 6.3) 
+    // context.arc(x-5, y-5, 10, 10, 6.3)  // 0 - 6.3 draws full circle
+    context.strokeStyle = 'yellow'
+    context.strokeWidth = 4
+    context.stroke()
+
   })
 
   canvas.addEventListener('mouseup', function() {
@@ -72,15 +81,13 @@ Additional E.C. for adding extra drawing tools to page -->
     let x = event.offsetX
     let y = event.offsetY   //offsetX, offsetY, may not work in older browsers
 
-    //Draw a filled rectangle centered under the mouse click
-    //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
-    //context.fillRect(x-5, y-5, 10, 10)
-
     // TODO Draw a cricle instead of a square (fix this code)
     context.beginPath()
     context.arc(10, 10, 10, 0, 6.3) 
-    context.arc(x-5, y-5, 10, 10, 6.3)  // 0 - 6.3 draws full circle
-    context.stroke
+    // context.arc(x-5, y-5, 10, 10, 6.3)  // 0 - 6.3 draws full circle
+    context.strokeStyle = 'maroon'
+    context.strokeWidth = 4
+    context.stroke()
 
   })
 

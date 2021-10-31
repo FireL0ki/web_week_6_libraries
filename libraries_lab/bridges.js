@@ -60,12 +60,12 @@ let bridgeChart = new Chart(ctx, {
         datasets: [
             {
                 data: [], // create empty so array can be entered
-                // backgroundColor: [] // TODO
+                // color: [] // TODO
             }
         ],
         labels: []
     },
-    options: {}  // ??
+
 })
 
 // loop over array to get bridge names & spans
