@@ -17,9 +17,9 @@
 
 
 <P>Drag the mouse on the canvas</P>
-<canvas id="canvas" height="400" width="400"></canvas>
+<canvas id="canvas" height="600" width="600"></canvas>
 
-<!-- TODO add an input type="color" to select drawing color.The value from the 
+<!-- Add an input type="color" to select drawing color.The value from the 
 color input can be used with a context.strokeStyle or context.fillStyle statement-->
 <form><br>
 <label for="color">Color:</label>
@@ -42,8 +42,6 @@ Additional E.C. for adding extra drawing tools to page -->
 
   let canvas = document.querySelector('#canvas')
   let context = canvas.getContext('2d')
-
-  
   
   // Keep track of whether the mouse button has been pressed down or not.
   // Think of this as whether the user is drawing or not, is their brush on the canvas?
@@ -51,15 +49,16 @@ Additional E.C. for adding extra drawing tools to page -->
 
   canvas.addEventListener('mousedown', function() {
     mousedown = true
-
+    let x = event.offsetX
+    let y = event.offsetY
     // Circle instead of square
-     context.beginPath()
-    context.arc(10, 10, 10, 0, 6.3) 
-    // context.arc(x-5, y-5, 10, 10, 6.3)  // 0 - 6.3 draws full circle
-    context.strokeStyle = 'yellow'
-    context.strokeWidth = 4
-    context.stroke()
+    context.beginPath()
+    context.arc(x-5, y-5, rangeInput, 10, 6.3)  // 0 - 6.3 draws full circle
+    // use the color choice from the color input
+    context.strokeStyle = colorChoice
+    context.lineWidth = 4
 
+    context.stroke()
   })
 
   canvas.addEventListener('mouseup', function() {
@@ -83,12 +82,15 @@ Additional E.C. for adding extra drawing tools to page -->
 
     // TODO Draw a cricle instead of a square (fix this code)
     context.beginPath()
-    context.arc(10, 10, 10, 0, 6.3) 
-    // context.arc(x-5, y-5, 10, 10, 6.3)  // 0 - 6.3 draws full circle
-    context.strokeStyle = 'maroon'
-    context.strokeWidth = 4
+    context.arc(x-5, y-5, 4, 0, 6.3) // 0 - 6.3 draws full circle
+    context.strokeStyle = colorChoice
+    context.lineWidth = 4
     context.stroke()
 
+  })
+
+  document.getElementById("submit").addEventListener("click", function() {
+    context.strokeStyle = colorChoice
   })
 
 </script>
